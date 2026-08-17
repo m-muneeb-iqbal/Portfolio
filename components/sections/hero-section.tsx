@@ -2,14 +2,12 @@
 
 import * as React from "react";
 import Image from "next/image";
-import { toast } from "sonner";
 import {
-  Check,
   Code2,
-  Copy,
   Download,
   Mail,
   MapPin,
+  Phone,
   Radio,
   Smartphone,
   Sparkles,
@@ -25,19 +23,8 @@ import { GithubIcon, LinkedinIcon, UpworkIcon, IndeedIcon } from "@/components/i
 import { profileData } from "@/lib/data";
 
 export function HeroSection() {
-  const [copied, setCopied] = React.useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(profileData.email);
-    setCopied(true);
-    toast.success("Email copied to clipboard!", {
-      description: profileData.email,
-    });
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <section className="relative overflow-hidden py-12 md:py-20">
+    <section id="hero" className="relative overflow-hidden py-12 md:py-20 scroll-mt-16">
       {/* Background subtle radial gradient */}
       <div
         aria-hidden="true"
@@ -86,9 +73,9 @@ export function HeroSection() {
                 <span>{profileData.location}</span>
               </div>
               <span className="text-border">•</span>
-              <div className="flex items-center gap-1.5">
-                <Mail className="h-3.5 w-3.5 text-foreground/70" />
-                <span>{profileData.email}</span>
+              <div className="flex items-center gap-1.5 min-w-0 max-w-full">
+                <Mail className="h-3.5 w-3.5 shrink-0 text-foreground/70" />
+                <span className="truncate sm:whitespace-normal">{profileData.email}</span>
               </div>
             </div>
 
@@ -117,31 +104,17 @@ export function HeroSection() {
                 </a>
               </Button>
 
-              <Tooltip>
-                <TooltipTrigger asChild>
-                  <Button
-                    variant="secondary"
-                    size="default"
-                    className="rounded-full"
-                    onClick={handleCopyEmail}
-                  >
-                    {copied ? (
-                      <>
-                        <Check className="h-4 w-4 text-emerald-500" />
-                        <span className="text-xs">Copied!</span>
-                      </>
-                    ) : (
-                      <>
-                        <Copy className="h-4 w-4" />
-                        <span className="text-xs">Copy Email</span>
-                      </>
-                    )}
-                  </Button>
-                </TooltipTrigger>
-                <TooltipContent>
-                  <p>{copied ? "Email copied to clipboard!" : "Copy muneebiq24@gmail.com"}</p>
-                </TooltipContent>
-              </Tooltip>
+              <Button
+                asChild
+                variant="secondary"
+                size="default"
+                className="rounded-full"
+              >
+                <a href={`tel:${profileData.phoneTel}`}>
+                  <Phone className="h-4 w-4" />
+                  <span className="text-xs">{profileData.phone}</span>
+                </a>
+              </Button>
             </div>
 
             {/* Core Focus Badges */}

@@ -27,7 +27,7 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-12 border-t border-border/40">
+    <section id="about" className="py-12 border-t border-border/40 scroll-mt-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Section Header */}

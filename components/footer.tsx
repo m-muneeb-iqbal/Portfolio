@@ -47,7 +47,7 @@ export function Footer() {
               size="icon"
               className="h-8 w-8 rounded-full border-border/80 ml-2"
             >
-              <a href="#" aria-label="Back to Top">
+              <a href="/#hero" aria-label="Back to Top">
                 <ArrowUp className="h-3.5 w-3.5" />
               </a>
             </Button>

@@ -8,17 +8,37 @@ import { ThemeToggle } from "@/components/theme-toggle";
 import { profileData } from "@/lib/data";
 
 const navItems = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
-  { label: "Skills", href: "#skills" },
-  { label: "Education", href: "#education" },
-  { label: "Certifications", href: "#certifications" },
+  { label: "Home", href: "/#hero" },
+  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Experience", href: "/#experience" },
+  { label: "Skills", href: "/#skills" },
+  { label: "Education", href: "/#education" },
+  { label: "Certifications", href: "/#certifications" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const [isScrolled, setIsScrolled] = React.useState(false);
+
+  const handleAnchorClick = (
+    e: React.MouseEvent<HTMLAnchorElement>,
+    href: string,
+  ) => {
+    const hash = href.split("#")[1];
+    if (!hash || window.location.pathname !== "/") return;
+
+    e.preventDefault();
+    const target = document.getElementById(hash);
+    if (target) {
+      target.scrollIntoView({ behavior: "smooth" });
+    } else {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+    window.history.pushState(null, "", `#${hash}`);
+    setMobileMenuOpen(false);
+  };
 
   React.useEffect(() => {
     const handleScroll = () => {
@@ -39,7 +59,8 @@ export function Navbar() {
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Brand Logo / Name */}
         <Link
-          href="/"
+          href="/#hero"
+          onClick={(e) => handleAnchorClick(e, "/#hero")}
           className="group flex items-center gap-2.5 font-semibold text-foreground transition-opacity hover:opacity-90"
         >
           <span className="flex h-8 w-8 items-center justify-center rounded-lg bg-primary text-primary-foreground font-mono text-sm font-bold shadow-xs transition-transform group-hover:scale-105">
@@ -56,6 +77,7 @@ export function Navbar() {
             <a
               key={item.href}
               href={item.href}
+              onClick={(e) => handleAnchorClick(e, item.href)}
               className="rounded-full px-3 py-1 text-xs font-medium text-muted-foreground transition-colors hover:bg-background hover:text-foreground"
             >
               {item.label}
@@ -108,7 +130,7 @@ export function Navbar() {
               <a
                 key={item.href}
                 href={item.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => handleAnchorClick(e, item.href)}
                 className="rounded-md px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
               >
                 {item.label}

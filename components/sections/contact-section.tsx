@@ -1,26 +1,11 @@
-"use client";
-
-import * as React from "react";
-import { Check, Copy, Mail, MessageSquare, Send } from "lucide-react";
-import { toast } from "sonner";
+import { MessageSquare, Phone, Send } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { profileData } from "@/lib/data";
 
 export function ContactSection() {
-  const [copied, setCopied] = React.useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(profileData.email);
-    setCopied(true);
-    toast.success("Email copied to clipboard!", {
-      description: profileData.email,
-    });
-    setTimeout(() => setCopied(false), 2000);
-  };
-
   return (
-    <section id="contact" className="py-12 border-t border-border/40">
+    <section id="contact" className="py-12 border-t border-border/40 scroll-mt-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         
         <Card className="border-border/80 bg-gradient-to-br from-card via-card/90 to-muted/30 shadow-sm overflow-hidden">
@@ -51,22 +36,15 @@ export function ContactSection() {
                 </Button>
 
                 <Button
+                  asChild
                   variant="outline"
                   size="default"
                   className="rounded-xl border-border/80 gap-2 hover:bg-muted"
-                  onClick={handleCopyEmail}
                 >
-                  {copied ? (
-                    <>
-                      <Check className="h-4 w-4 text-emerald-500" />
-                      <span>Email Copied!</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="h-4 w-4" />
-                      <span>Copy Email Address</span>
-                    </>
-                  )}
+                  <a href={`tel:${profileData.phoneTel}`}>
+                    <Phone className="h-4 w-4" />
+                    <span>{profileData.phone}</span>
+                  </a>
                 </Button>
               </div>
 

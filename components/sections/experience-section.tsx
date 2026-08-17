@@ -13,7 +13,7 @@ import { experienceData } from "@/lib/data";
 
 export function ExperienceSection() {
   return (
-    <section id="experience" className="py-12 border-t border-border/40">
+    <section id="experience" className="py-12 border-t border-border/40 scroll-mt-16">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 space-y-8">
         
         {/* Section Header */}
@@ -31,7 +31,7 @@ export function ExperienceSection() {
         </div>
 
         {/* Timeline Container with Glowing Rail */}
-        <div className="relative pl-6 sm:pl-8 ml-2 sm:ml-4 space-y-8">
+        <div className="relative pl-6 sm:pl-8 ml-2 sm:ml-4 space-y-8 min-w-0">
           {/* Luminous Animated Timeline Beam */}
           <div className="absolute left-0 top-3 bottom-3 w-[2px] bg-gradient-to-b from-primary via-primary/40 to-border/40 rounded-full" />
 
@@ -45,32 +45,33 @@ export function ExperienceSection() {
               </div>
 
               {/* Experience Card */}
-              <Card className="border-border/60 bg-card/80 hover:border-primary/40 hover:shadow-md transition-all duration-200">
+              <Card className="min-w-0 overflow-hidden border-border/60 bg-card/80 hover:border-primary/40 hover:shadow-md transition-all duration-200">
                 <CardHeader className="p-5 pb-3 space-y-2">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
-                    <div>
+                  <div className="flex flex-col gap-2 sm:flex-row sm:items-start sm:justify-between">
+                    <div className="min-w-0">
                       <CardTitle className="text-base sm:text-lg font-bold text-foreground group-hover:text-primary transition-colors">
                         {exp.title}
                       </CardTitle>
                     </div>
-                    <Badge variant="secondary" className="w-fit text-xs font-normal bg-muted/60">
+                    <Badge variant="secondary" className="w-fit shrink-0 text-xs font-normal bg-muted/60">
                       <Calendar className="mr-1 h-3 w-3" />
                       {exp.duration}
                     </Badge>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-muted-foreground">
-                    <div className="flex items-center gap-1 font-medium text-foreground/90">
-                      <Building className="h-3.5 w-3.5 text-primary" />
-                      <span>{exp.company}</span>
+                  <div className="flex flex-col gap-1.5 text-xs text-muted-foreground sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-4 sm:gap-y-1">
+                    <div className="flex min-w-0 items-start gap-1 font-medium text-foreground/90">
+                      <Building className="mt-0.5 h-3.5 w-3.5 shrink-0 text-primary" />
+                      <span className="break-words">{exp.company}</span>
                     </div>
-                    <span className="text-border">•</span>
-                    <div className="flex items-center gap-1">
-                      <MapPin className="h-3.5 w-3.5" />
-                      <span>{exp.location}</span>
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-1">
+                      <div className="flex items-center gap-1">
+                        <MapPin className="h-3.5 w-3.5 shrink-0" />
+                        <span className="break-words">{exp.location}</span>
+                      </div>
+                      <span className="hidden text-border sm:inline">•</span>
+                      <span className="font-mono text-[11px] text-muted-foreground/80">{exp.type}</span>
                     </div>
-                    <span className="text-border">•</span>
-                    <span className="font-mono text-[11px] text-muted-foreground/80">{exp.type}</span>
                   </div>
                 </CardHeader>
 

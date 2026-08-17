@@ -49,6 +49,8 @@ export interface ProfileInfo {
   title: string;
   location: string;
   email: string;
+  phone: string;
+  phoneTel: string;
   availability: string;
   bio: string;
   about: string;
@@ -68,8 +70,10 @@ export const profileData: ProfileInfo = {
   title: "Full-Stack Developer",
   location: "Wah Cantonment, Pakistan",
   email: "muneebiq24@gmail.com",
+  phone: "+92 309 5075940",
+  phoneTel: "+923095075940",
   availability: "Available for full-time & contract opportunities",
-  bio: "Full-Stack Developer with expertise in MERN stack and Flutter, building scalable web platforms and cross-platform mobile apps with a strong focus on clean architecture, real-time performance, and user experience.",
+  bio: "I turn ideas into shipped products, full-stack web apps, Flutter mobile apps, and real-time systems that users actually rely on.",
   about: "Results-driven MERN Stack developer with a Computer Science degree and hands-on experience shipping real-world full-stack applications. Known for understanding business requirements, not just code, and delivering working features independently with clear communication. Strong background in RESTful API design, real-time architecture (WebSockets/WebRTC), and database optimization.",
   socials: {
     linkedin: "https://www.linkedin.com/in/muhammad-muneeb-iqbal-b55138330",
@@ -135,7 +139,7 @@ export const experienceData: Experience[] = [
   {
     id: "mightydog-atlanta",
     title: "Business Support System Specialist",
-    company: "Mighty Dog Roofing of North Atlanta",
+    company: "Mighty Dog Roofing",
     location: "North Atlanta, United States",
     type: "Part-time (Remote)",
     duration: "June 2024 – Present",
@@ -149,7 +153,7 @@ export const experienceData: Experience[] = [
   {
     id: "mightydog-wichita",
     title: "Business Support System Specialist",
-    company: "Mighty Dog Roofing of Wichita",
+    company: "Mighty Dog Roofing",
     location: "Wichita, United States",
     type: "Part-time (Remote)",
     duration: "July 2024 – October 2024",
