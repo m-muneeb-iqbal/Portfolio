@@ -76,7 +76,7 @@ export function ArchitectureDiagram() {
           <div className="flex items-center gap-2">
             <span className="flex h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
             <h4 className="text-sm font-semibold text-foreground tracking-tight">
-              AroundYou • Live Real-Time Architecture Fl
+              AroundYou • Live Real-Time Architecture Flow
             </h4>
           </div>
           <p className="text-xs text-muted-foreground">
