@@ -2,12 +2,15 @@
 
 import * as React from "react";
 import {
+  Braces,
   Code2,
-  Cpu,
   Database,
   Globe,
+  GitBranch,
+  KeyRound,
   Layers,
   Radio,
+  ShieldCheck,
   Server,
   Smartphone,
   Workflow,
@@ -15,19 +18,27 @@ import {
 } from "lucide-react";
 
 const techItems = [
+  { name: "Postman", category: "Deployment", icon: Braces },
   { name: "React.js", category: "Frontend", icon: Code2 },
   { name: "Node.js", category: "Backend", icon: Server },
-  { name: "Express.js", category: "API Framework", icon: Layers },
+  { name: "Express.js", category: "API Framework", icon: Braces },
   { name: "MongoDB", category: "Database", icon: Database },
   { name: "Flutter", category: "Mobile", icon: Smartphone },
+  { name: "Render", category: "Deployment", icon: Server },
+  { name: "Firebase Firestore", category: "Databases", icon: Database },
   { name: "Dart", category: "Language", icon: Code2 },
-  { name: "TypeScript", category: "Language", icon: Code2 },
+  { name: "Laravel", category: "Backend", icon: Layers },
+  { name: "Vercel", category: "Deployment", icon: Globe },
+  { name: "RESTful API Design", category: "Architecture", icon: Workflow },
   { name: "WebSockets", category: "Real-Time", icon: Radio },
-  { name: "WebRTC", category: "Audio Calling", icon: Zap },
-  { name: "Next.js", category: "Full-Stack", icon: Globe },
-  { name: "Python", category: "AI / Backend", icon: Cpu },
-  { name: "Tailwind CSS", category: "Styling", icon: Layers },
-  { name: "REST APIs", category: "Architecture", icon: Workflow },
+  { name: "Git", category: "Deployment", icon: GitBranch },
+  { name: "WebRTC", category: "Bi-Directional Communication", icon: Radio },
+  { name: "Socket.io", category: "Backend & Architecture", icon: Zap },
+  { name: "MVC Architecture", category: "Architecture", icon: Workflow },
+  { name: "MySQL", category: "Databases", icon: Database },
+  { name: "JWT", category: "Security", icon: ShieldCheck },
+  { name: "OAuth", category: "Authentication", icon: KeyRound },
+  { name: "GitHub", category: "Deployment", icon: GitBranch },
 ];
 
 export function TechStackStream() {

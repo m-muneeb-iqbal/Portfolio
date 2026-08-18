@@ -4,7 +4,7 @@ import * as React from "react";
 import Image from "next/image";
 import {
   Code2,
-  Download,
+  ExternalLink,
   Mail,
   MapPin,
   Phone,
@@ -51,7 +51,7 @@ export function HeroSection() {
             {/* Headline */}
             <div className="space-y-2">
               <h1 className="text-3xl font-bold tracking-tight sm:text-5xl text-foreground">
-                Hi, I'm{" "}
+                Hi, I&apos;m{" "}
                 <span className="text-primary underline decoration-muted-foreground/30 underline-offset-8">
                   {profileData.name}
                 </span>
@@ -59,6 +59,22 @@ export function HeroSection() {
               <p className="text-lg sm:text-xl font-medium text-muted-foreground">
                 Full-Stack & Mobile App Developer
               </p>
+
+              {/* Specialties */}
+              <div className="flex flex-wrap items-center justify-center gap-2 pt-1 md:justify-start">
+                <Badge variant="outline" className="gap-1.5 border-border/60 bg-muted/20 px-2.5 py-1 text-xs font-normal text-foreground/80">
+                  <Code2 className="h-3 w-3 text-primary" />
+                  MERN Full-Stack
+                </Badge>
+                <Badge variant="outline" className="gap-1.5 border-border/60 bg-muted/20 px-2.5 py-1 text-xs font-normal text-foreground/80">
+                  <Smartphone className="h-3 w-3 text-primary" />
+                  Flutter & Dart
+                </Badge>
+                <Badge variant="outline" className="gap-1.5 border-border/60 bg-muted/20 px-2.5 py-1 text-xs font-normal text-foreground/80">
+                  <Radio className="h-3 w-3 text-primary" />
+                  WebSockets & WebRTC
+                </Badge>
+              </div>
             </div>
 
             {/* Bio summary */}
@@ -66,22 +82,9 @@ export function HeroSection() {
               {profileData.bio}
             </p>
 
-            {/* Location & Quick Meta */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-4 text-xs text-muted-foreground">
-              <div className="flex items-center gap-1.5">
-                <MapPin className="h-3.5 w-3.5 text-foreground/70" />
-                <span>{profileData.location}</span>
-              </div>
-              <span className="text-border">•</span>
-              <div className="flex items-center gap-1.5 min-w-0 max-w-full">
-                <Mail className="h-3.5 w-3.5 shrink-0 text-foreground/70" />
-                <span className="truncate sm:whitespace-normal">{profileData.email}</span>
-              </div>
-            </div>
-
             {/* CTA Action Buttons */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-3 pt-2">
-              <Button asChild size="default" className="rounded-full shadow-xs">
+            <div className="flex flex-wrap items-center justify-center gap-3 pt-2 md:justify-start">
+              <Button asChild size="sm" className="rounded-full shadow-xs">
                 <a href="#projects">
                   <Sparkles className="h-4 w-4" />
                   View Projects
@@ -91,7 +94,7 @@ export function HeroSection() {
               <Button
                 asChild
                 variant="outline"
-                size="default"
+                size="sm"
                 className="rounded-full border-border/80 hover:bg-muted"
               >
                 <a
@@ -99,44 +102,35 @@ export function HeroSection() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  <Download className="h-4 w-4" />
-                  Download Resume
-                </a>
-              </Button>
-
-              <Button
-                asChild
-                variant="secondary"
-                size="default"
-                className="rounded-full"
-              >
-                <a href={`tel:${profileData.phoneTel}`}>
-                  <Phone className="h-4 w-4" />
-                  <span className="text-xs">{profileData.phone}</span>
+                  <ExternalLink className="h-4 w-4" />
+                  View Resume
                 </a>
               </Button>
             </div>
 
-            {/* Core Focus Badges */}
-            <div className="flex flex-wrap items-center justify-center md:justify-start gap-2 pt-1">
-              <Badge variant="outline" className="gap-1.5 py-1 px-2.5 text-xs font-normal bg-muted/30 border-border/70 text-foreground/90">
-                <Code2 className="h-3 w-3 text-primary" />
-                MERN Full-Stack
-              </Badge>
-              <Badge variant="outline" className="gap-1.5 py-1 px-2.5 text-xs font-normal bg-muted/30 border-border/70 text-foreground/90">
-                <Smartphone className="h-3 w-3 text-primary" />
-                Flutter & Dart
-              </Badge>
-              <Badge variant="outline" className="gap-1.5 py-1 px-2.5 text-xs font-normal bg-muted/30 border-border/70 text-foreground/90">
-                <Radio className="h-3 w-3 text-primary" />
-                WebSockets & WebRTC
-              </Badge>
+            {/* Location, Email & Phone */}
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 pt-1 text-xs text-muted-foreground md:justify-start">
+              <div className="flex w-full items-center justify-center gap-1.5 sm:w-auto md:justify-start">
+                <MapPin className="h-3.5 w-3.5 text-foreground/70" />
+                <span>{profileData.location}</span>
+              </div>
+              <div className="flex w-full items-center justify-center gap-3 min-[420px]:w-auto md:justify-start">
+                <div className="flex min-w-0 max-w-full items-center gap-1.5">
+                  <Mail className="h-3.5 w-3.5 shrink-0 text-foreground/70" />
+                  <span className="truncate sm:whitespace-normal">{profileData.email}</span>
+                </div>
+                <span className="text-border">•</span>
+                <div className="flex items-center gap-1.5">
+                  <Phone className="h-3.5 w-3.5 text-foreground/70" />
+                  <span>{profileData.phone}</span>
+                </div>
+              </div>
             </div>
 
-            {/* Social Links */}
-            <div className="flex items-center justify-center md:justify-start gap-2 pt-2">
-              <span className="text-xs text-muted-foreground mr-1">Connect:</span>
-              
+            {/* Connect */}
+            <div className="flex flex-wrap items-center justify-center gap-2 pt-1 md:justify-start">
+              <span className="mr-0.5 text-xs text-muted-foreground/90">Connect:</span>
+
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button asChild variant="ghost" size="icon" className="h-8 w-8 rounded-full">
